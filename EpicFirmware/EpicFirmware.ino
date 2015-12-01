@@ -43,7 +43,7 @@ void setup()
 
 void loop() {
 	// if the button is pressed (high) send the fire signal to the IR
-	if (digitalRead(BTN_FIRE_PIN) == LOW)
+	if (digitalRead(BTN_FIRE_PIN) == HIGH)
 	{
 		Serial.println("fire");
 		irsend.sendLightStrike(sendData, 32);
