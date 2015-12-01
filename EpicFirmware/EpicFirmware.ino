@@ -25,18 +25,12 @@ void setup()
 {
 	// enable the serial port
 	Serial.begin(9600);
-	Serial.setTimeout(100);  // only wait 100ms for a serial message
-
-	// make the IR LED and output and turn it off
-	pinMode(IR_SEND_PIN, OUTPUT);
-	digitalWrite(IR_SEND_PIN, LOW);
 
 	//make the button pin an input
 	pinMode(BTN_FIRE_PIN, INPUT);
 
 	// Start the IR receiver
 	irrecv.enableIRIn();
-	
 
 	Serial.println("Ready for something Epic?");
 }
@@ -58,9 +52,7 @@ void loop() {
 		if (results.decode_type == LIGHTSTRIKE)
 			Serial.println(results.value, HEX);
 		else
-		{
 			Serial.println("miss");
-		}
 
 		irrecv.resume();		// Receive the next value
 	}
